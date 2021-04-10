@@ -1,0 +1,77 @@
+*,*::before,*::after{
+  box-sizing: border-box;
+  border-radius: 70%
+
+}
+body{
+  background-color : black;
+}
+.calculator-grid{
+
+  /* all the components under child class are going to be counted as individual component for grid */
+  display:grid;
+  justify-content: center;
+  /* iss class ke jo andar ke contents hai use kaise align karna hai */
+
+  align-content: center;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: minmax(120px,auto) auto auto auto auto auto;
+
+  /* this means that for the calculator the output window first line should be min of 120px and second line should
+  be adjustable so auto */
+  align:center;
+}
+
+.calculator-grid>button{
+  /* > operator selects all button  elements whose  parent is calculator-grid element */
+  cursor:pointer;
+  /* changes curson to pointer when its over it */
+  font-size:3rem;
+  border:2px solid black;
+  background-color: rgba(255,255,255,0.75%);
+  background-color: orange;
+  margin:5%;
+
+}
+
+calculator-grid>button:hover{
+  background-color: rgba(255,255,255,0.9%)
+}
+
+.span-two{
+  grid-column:span 2;
+}
+
+.output{
+  grid-column: 1/-1;
+  background-color: rgb(0,0,0,75%);
+  border-radius: 0%;
+  display:flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  /* box |           |
+         |123     456| to make this vertically aligned */
+  flex-direction: column;
+
+
+  /* Word wrapping is when a line of text automatically "wraps" to the next line when
+  it gets to the end of a page or text field. Without the word wrap feature,
+  text would continue on one line until the user pressed "Enter" or "Return" to insert a line break. */
+
+  word-wrap: break-word;
+  word-break: break-all;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+
+.output .previous-operand{
+  color:white;
+  border-radius: 0%;
+  font-size:1.3rem;
+}
+.output .current-operand{
+  color:white;
+  border-radius: 0%;
+  font-size:1.8rem;
+}
